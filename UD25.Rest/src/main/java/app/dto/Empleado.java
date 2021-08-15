@@ -20,36 +20,28 @@ public class Empleado {
 		
 	}
 	
-	public Empleado(String nombre,String trabajo) {
+	public Empleado(String nombre, String trabajo) {
 		this.nombre=nombre;
-		comprobarTrabajo(trabajo);
-		comprobarSalario();
+		this.trabajo=trabajo;
+		this.salario=comprobarSalario(trabajo);
 	}
 
-	public void comprobarSalario() {
-		int salario=0;
+	public int comprobarSalario(String trabajo) {
+		int salario = 0;
 		
-		if(trabajo.equalsIgnoreCase("Junior")) {
-			salario=1000;
-		}else if(trabajo.equalsIgnoreCase("Mid")){
-			salario=2000;
-		}else if(trabajo.equalsIgnoreCase("Senior")){
-			salario=3000;
+		switch(trabajo) {
+			case "Junior":
+				salario=1000;
+			break;
+			case "Mid":
+				salario=2000;
+			break;
+			case "Senior":
+				salario=3000;
+			break;
 		}
 		
-		this.setSalario(salario);
-	}
-	
-	public void comprobarTrabajo(String trabajo) {
-		String trabajo_final;
-		
-		if(trabajo.equalsIgnoreCase("Junior")||trabajo.equalsIgnoreCase("Mid")||trabajo.equalsIgnoreCase("Senior")) {
-			trabajo_final=trabajo;
-		}else {
-			trabajo_final="Junior";
-		}
-		
-		this.setTrabajo(trabajo_final);
+		return salario;
 	}
 	
 	public String getNombre() {
