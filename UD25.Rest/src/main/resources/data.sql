@@ -3,7 +3,7 @@ DROP table IF EXISTS empleados;
 create table empleados (
 id int(5) auto_increment primary key,
 nombre varchar(100),
-trabajo varchar(100),
+trabajo ENUM('Junior','Mid','Senior'),
 salario int(5)
 );
 
